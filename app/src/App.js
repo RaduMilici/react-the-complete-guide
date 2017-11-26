@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import './App.css'
-import Person from './Person/Person'
+import React, { Component } from 'react';
+import Radium, { StyleRoot } from 'radium';
+import './App.css';
+import Person from './Person/Person';
 
 class App extends Component {
   state = {
@@ -21,9 +22,9 @@ class App extends Component {
   togglePeopleHandler = () => this.setState({ showPeople: !this.state.showPeople })
 
   deletePersonHandler = (index) => {
-    const people = [...this.state.people];
-    people.splice(index, 1);
-    this.setState({ people });
+    const people = [...this.state.people]
+    people.splice(index, 1)
+    this.setState({ people })
   }
 
   listPeople = () => {
@@ -40,28 +41,43 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       border: '1px solid blue',
       padding: '8px',
       cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black',
+      }
     }
 
+    const classes = []
+
+    if (this.state.people.length <= 2)
+      classes.push('red')
+
+    if (this.state.people.length <= 1)
+      classes.push('bold')
+
     return (
-      <div className='App'>
-        <h1>hello world</h1>
-        <p>this is a react app</p>
-        <button
-            style={style}
-            onClick={this.togglePeopleHandler}>switch name
-        </button>
-        {
-          this.state.showPeople ?
-            <div> {this.listPeople()} </div> :
-            null
-        }
-      </div>
+      <StyleRoot>
+        <div className='App'>
+          <h1>hello world</h1>
+          <p className={classes.join(' ')}>this is a react app</p>
+          <button
+              style={style}
+              onClick={this.togglePeopleHandler}>switch name
+          </button>
+          {
+            this.state.showPeople ?
+                <div> {this.listPeople()} </div> :
+                null
+          }
+        </div>
+      </StyleRoot>
     )
   }
 }
 
-export default App
+export default Radium(App)

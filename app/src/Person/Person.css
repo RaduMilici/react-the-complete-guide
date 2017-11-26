@@ -11,3 +11,8 @@
     background-color: lightcyan;
     cursor: pointer;
 }
+
+.person span:hover {
+    color: rebeccapurple;
+    font-weight: bold;
+}
