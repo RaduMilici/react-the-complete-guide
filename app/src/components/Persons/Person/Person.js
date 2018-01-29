@@ -24,15 +24,14 @@ class Person extends Component {
     return (
       <div className={classes.person}>
         <span onClick={() => this.props.onClick(this.props.index)}>
-          My name is {this.props.name} and I am {this.props.age} years old.
+          My name is {this.props.name}
+          and I am {this.props.age} years old.
         </span>
         <p>{this.props.children}</p>
         <input
           type="text"
           value={this.props.name}
-          onChange={event =>
-            this.props.onChange(event.target.value, this.props.index)
-          }
+          onChange={event => this.props.onChange(event.target.value, this.props.index)}
         />
       </div>
     )

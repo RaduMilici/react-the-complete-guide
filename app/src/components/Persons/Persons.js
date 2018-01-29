@@ -20,31 +20,16 @@ class Persons extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState, nextContext) {
-    console.log(
-      'Persons.js shouldComponentUpdate',
-      nextProps,
-      nextState,
-      nextContext
-    )
+    console.log('Persons.js shouldComponentUpdate', nextProps, nextState, nextContext)
     return nextProps.persons !== this.props.persons
   }
 
   componentWillUpdate(nextProps, nextState, nextContext) {
-    console.log(
-      'Persons.js componentWillUpdate',
-      nextProps,
-      nextState,
-      nextContext
-    )
+    console.log('Persons.js componentWillUpdate', nextProps, nextState, nextContext)
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
-    console.log(
-      'Persons.js componentDidUpdate',
-      prevProps,
-      prevState,
-      prevContext
-    )
+    console.log('Persons.js componentDidUpdate', prevProps, prevState, prevContext)
   }
 
   render() {
