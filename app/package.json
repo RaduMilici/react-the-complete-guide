@@ -52,7 +52,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "format": "prettier --single-quote --no-semi --write --trailing-comma es5 --print-width 100 \"**/*.js\""
+    "format": "prettier --single-quote --no-semi --write --trailing-comma es5 --print-width 100 \"src/**/*.js\""
   },
   "jest": {
     "collectCoverageFrom": [
@@ -95,5 +95,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "prettier": "^1.10.2"
   }
 }
