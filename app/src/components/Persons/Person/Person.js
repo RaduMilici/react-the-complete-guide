@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import RandomPersonName from './RandomPersonName/RandomPersonName'
 import classes from './Person.css'
 
 class Person extends Component {
@@ -33,6 +34,7 @@ class Person extends Component {
           value={this.props.name}
           onChange={event => this.props.onChange(event.target.value, this.props.index)}
         />
+        <RandomPersonName name={this.props.name} />
       </div>
     )
   }

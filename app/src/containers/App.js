@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import classes from './App.css'
 import Cockpit from '../components/Cockpit/Cockpit'
 import Persons from '../components/Persons/Persons'
+import WithClass from '../hoc/WithClass'
 // import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
@@ -67,8 +68,9 @@ class App extends Component {
 
   render() {
     console.log('App.js render')
+
     return (
-      <div className={classes.App}>
+      <WithClass classes={classes.App}>
         <button onClick={() => this.setState({ showPeople: true })}>Show Persons</button>
         <Cockpit onClick={this.togglePeopleHandler} showPeople={this.props.showPeople} />
         {this.state.showPeople ? (
@@ -78,7 +80,7 @@ class App extends Component {
             onClick={this.deletePersonHandler}
           />
         ) : null}
-      </div>
+      </WithClass>
     )
   }
 }
