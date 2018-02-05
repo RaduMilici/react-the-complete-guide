@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import RandomPersonName from './RandomPersonName/RandomPersonName'
 import classes from './Person.css'
 
@@ -14,6 +15,7 @@ class Person extends Component {
 
   componentDidMount() {
     console.log('Person.js componentDidMount')
+    this.inputElement.focus()
   }
 
   componentWillUnmount() {
@@ -25,12 +27,12 @@ class Person extends Component {
     return (
       <div className={classes.person}>
         <span onClick={() => this.props.onClick(this.props.index)}>
-          My name is {this.props.name}
-          and I am {this.props.age} years old.
+          My name is {this.props.name} and I am {this.props.age} years old.
         </span>
         <p>{this.props.children}</p>
         <input
           type="text"
+          ref={inp => (this.inputElement = inp)}
           value={this.props.name}
           onChange={event => this.props.onChange(event.target.value, this.props.index)}
         />
@@ -38,6 +40,13 @@ class Person extends Component {
       </div>
     )
   }
+}
+
+Person.propTypes = {
+  onClick: PropTypes.func,
+  onChange: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number,
 }
 
 export default Person

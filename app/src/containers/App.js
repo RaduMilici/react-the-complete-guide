@@ -7,7 +7,7 @@ import WithClass from '../hoc/WithClass'
 
 class App extends Component {
   state = {
-    count: 1,
+    count: 3,
     persons: [],
     showPeople: true,
   }
